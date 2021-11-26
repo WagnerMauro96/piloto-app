@@ -16,7 +16,6 @@ const InformacaoFinanceira = (props) => {
 
   return (
     <>
-      <h1>Informações financeiras</h1>
       <Form.Field
         control={TextArea}
         label='Descrição dos fluxos de rendimento disponíveis'

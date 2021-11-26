@@ -18,7 +18,6 @@ const Estatuaria = (props) => {
 
   return (
     <>
-      <h1>Informação Estatutária</h1>
       <Form.Field
         control={Input}
         label='Designação Social'

@@ -15,7 +15,6 @@ const UserDetails = (props) => {
   } = props.values
   return (
     <>
-      <h1>Informação Pessoal</h1>
 
       <Form.Field
         control={Input}

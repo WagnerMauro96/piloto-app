@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Label, Table, Menu, Icon, Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
+import {Table, Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
 
 
 function AvaliacoesFeitasPage() {
@@ -44,7 +44,7 @@ function AvaliacoesFeitasPage() {
           <Table.Body>
             <Table.Row>
               <Table.Cell>
-                <Label ribbon>{dados.nomeCompleto}</Label>
+                {dados.nomeCompleto}
               </Table.Cell>
               <Table.Cell>{dados.email}</Table.Cell>
               <Table.Cell>{dados.telefone1}</Table.Cell>
@@ -72,7 +72,7 @@ function AvaliacoesFeitasPage() {
           </Table.Footer> */}
         </Table>
       ))}
-      {(loading && dadosAvaliacoes.length<1) && (
+      {(loading && dadosAvaliacoes.length < 1) && (
         <Segment>
           <Dimmer active inverted>
             <Loader inverted>Carregando dados</Loader>

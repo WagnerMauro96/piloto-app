@@ -91,7 +91,6 @@ const Caracterizacao = (props) => {
 
   return (
     <>
-      <h1>Caracterização do Negócio</h1>
       <Form.Group widths='equal'>
         <Form.Field
           control={TextArea}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from 'semantic-ui-react'
+import { Container, Divider, Progress, Grid, Label } from 'semantic-ui-react'
 import { UserDetails } from './UserDetails'
 import { Estatuaria } from './Estatuaria'
 import { Caracterizacao } from './Caracterizacao'
@@ -11,10 +11,12 @@ import { Success } from './Sucesso'
 import { Form } from 'semantic-ui-react'
 
 export class MainFormContainer extends React.Component {
+
   constructor(props) {
     super(props)
     this.state = {
       step: 1,
+      percent: 1,
       nomeCompleto: '',
       morada: '',
       nacionalidade: '',
@@ -112,6 +114,7 @@ export class MainFormContainer extends React.Component {
       return {
         ...prevState,
         step: prevState.step + 1,
+        percent: prevState.percent + 25
       }
     })
   }
@@ -121,12 +124,19 @@ export class MainFormContainer extends React.Component {
       return {
         ...prevState,
         step: prevState.step - 1,
+        percent: prevState.percent - 25
       }
     })
   }
 
   render() {
+
+    /* const [percent, setPercent] = useState(1) */
+
     const { step } = this.state
+
+    const { percent } = this.state
+
     const {
       nomeCompleto,
       morada,
@@ -240,6 +250,31 @@ export class MainFormContainer extends React.Component {
 
     return (
       <Container textAlign='left'>
+
+        <Grid columns={3}>
+          <Grid.Row>
+            <Grid.Column>
+              <div>
+                <Label circular color='blue' size='big'>{step}</Label>
+                {<Label pointing='left' size='huge'>
+                  {(step === 1) && ('Informação Pessoal')}
+                  {(step === 2) && ('Informação Estatutária')}
+                  {(step === 3) && ('Caracterização do Negócio')}
+                  {(step === 4) && ('Mercado e Concorrência')}
+                  {(step === 5) && ('Informações financeiras')}
+                  {(step > 5) && ('')}
+                </Label>}
+              </div>
+            </Grid.Column>
+            <Grid.Column textAlign='right'><p size='huge'>Página {step} de 6</p></Grid.Column>
+            <Grid.Column> <Progress percent={percent} size='small' color='blue' /></Grid.Column>
+          </Grid.Row>
+
+          {/* <Progresso /> */}
+        </Grid>
+
+        <Divider />
+
         <Form onSubmit={this.handleSubmit}>
           <Step
             step={step}

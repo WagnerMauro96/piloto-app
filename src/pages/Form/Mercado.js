@@ -101,7 +101,6 @@ const Mercado = (props) => {
 
   return (
     <>
-      <h1>Mercado e Concorrência</h1>
       <Form.Group widths='equal'>
         <Form.Field
           control={Dropdown}
